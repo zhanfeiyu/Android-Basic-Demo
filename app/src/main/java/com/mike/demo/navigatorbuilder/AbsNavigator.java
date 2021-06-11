@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 // 先写个基础的类, 通用操作
-public class AbsNavigator implements INavigator{
+public class AbsNavigator<B extends AbsNavigator.Builder> implements INavigator{
     private Builder builder;
     private View navigationBar;
 
@@ -49,8 +49,8 @@ public class AbsNavigator implements INavigator{
                 .inflate(this.builder.layoutId, this.builder.viewGroup, false);
     }
 
-    public Builder getBuilder() {
-        return builder;
+    public B getBuilder() {
+        return (B)builder;
     }
 
     //如果Builder不加泛型，调用setText等设参方法后，调用create()会报错：required Navigator, provided AbsNavigator.
