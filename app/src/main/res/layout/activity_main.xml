@@ -14,12 +14,19 @@
         android:text="Hello World!"
         android:gravity="center"/>-->
 
-    <androidx.recyclerview.widget.RecyclerView
+<!--    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/test_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </androidx.recyclerview.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>-->
+
+    <com.mike.demo.patternusage.wrapperpattern.MyRecyclerView
+        android:id="@+id/my_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.mike.demo.patternusage.wrapperpattern.MyRecyclerView>
 
 
 
