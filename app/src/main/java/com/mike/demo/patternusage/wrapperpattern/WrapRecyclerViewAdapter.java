@@ -39,6 +39,7 @@ public class WrapRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         // mRealAdapter 返回 mRealAdapter的ViewHolder
         int adjustPosition = position - headerCount;
         int realCount = mRealAdapter.getItemCount();
+        Log.d(TAG, "realCount = " + realCount);
         if (adjustPosition < realCount) {
             return mRealAdapter.onCreateViewHolder(parent, adjustPosition);
         }

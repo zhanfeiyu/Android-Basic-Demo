@@ -25,7 +25,7 @@ public class MyRecyclerView extends RecyclerView {
     @Override
     public void setAdapter(@Nullable Adapter adapter) {
         wrapRecyclerViewAdapter = new WrapRecyclerViewAdapter(adapter);
-        super.setAdapter(adapter);
+        super.setAdapter(wrapRecyclerViewAdapter);
     }
 
     public void addHeaderViews(View view) {

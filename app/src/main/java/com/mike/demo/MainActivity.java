@@ -123,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
             Log.d(TAG, "onBindViewHolder, position = " + position);
-            holder.textView.setText("position = " + mItems.get(position));
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -131,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
                     notifyDataSetChanged();
                 }
             });
+            holder.textView.setText("position = " + mItems.get(position));
         }
 
         @Override
