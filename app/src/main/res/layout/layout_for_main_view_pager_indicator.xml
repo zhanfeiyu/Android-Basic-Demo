@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="#E0E0E0"
+    >
+
+    <LinearLayout
+        android:id="@+id/view_tab_main"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/iv_main_tab_main"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/iv_background_tab_main"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="主页"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_tab_second"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/iv_main_tab_second"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/iv_background_tab_main"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="页2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_tab_third"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/iv_main_tab_third"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/iv_background_tab_main"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="页3"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_tab_fourth"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/iv_main_tab_fourth"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/iv_background_tab_main"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="页4"/>
+    </LinearLayout>
+
+</LinearLayout>

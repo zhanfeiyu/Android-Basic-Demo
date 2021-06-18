@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.ViewGroup;
 
 //给User用的,
-public class Navigator extends AbsNavigator {
+public class Navigator extends AbsNavigator<Navigator.Builder> {
     protected Navigator(Builder builder) {
         super(builder);
     }
