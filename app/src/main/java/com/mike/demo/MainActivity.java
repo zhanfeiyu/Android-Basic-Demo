@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void setTextViewBoldStyle(TextView textView, boolean bold) {
         if (bold) {
             textView.setTypeface(Typeface.DEFAULT_BOLD);
-            textView.setTextSize(20);
+            textView.setTextSize(18);
             textView.setTextColor(Color.RED);
         } else {
             textView.setTypeface(Typeface.DEFAULT);
