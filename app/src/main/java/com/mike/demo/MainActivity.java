@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         initDataBindings();
         initFragments();
         initViewPager();
@@ -64,13 +63,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initFragments() {
+        Log.d(TAG, "enter initFragments");
         mainPageFragments.add(DefaultBlankFragment.newInstance("Fragment1"));
         mainPageFragments.add(DefaultBlankFragment.newInstance("Fragment2"));
         mainPageFragments.add(DefaultBlankFragment.newInstance("Fragment3"));
         mainPageFragments.add(DefaultBlankFragment.newInstance("Fragment4"));
+        Log.d(TAG, "leave initFragments");
     }
 
     private void initViewPager() {
+        Log.d(TAG, "enter initViewPager");
+
         MainViewPagerAdapter mainViewPagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager(), getLifecycle(), mainPageFragments);
 
         mainBinding.mainViewPager.setAdapter(mainViewPagerAdapter);
@@ -81,10 +84,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 changeIndicatorTab(position);
             }
         });
-
+        Log.d(TAG, "leave initViewPager");
     }
 
     private void initTabIndicator() {
+        Log.d(TAG, "enter initTabIndicator");
+
         mainBinding.viewTabMain.setOnClickListener(this);
         mainBinding.viewTabSecond.setOnClickListener(this);
         mainBinding.viewTabThird.setOnClickListener(this);
@@ -97,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setTextViewBoldStyle(mainBinding.twMainTabMain, true);
         tw_current = mainBinding.twMainTabMain;
+        Log.d(TAG, "leave initTabIndicator");
     }
 
     @Override

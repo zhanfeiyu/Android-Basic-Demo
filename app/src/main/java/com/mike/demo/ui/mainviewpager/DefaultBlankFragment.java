@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mike.demo.R;
+import com.mike.demo.databinding.LayoutForMainFragmentBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,13 +39,14 @@ public class DefaultBlankFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
 
-    View rootView;
     ViewPager viewPager;
     ViewGroup viewGroupIndicators;
     AtomicInteger index = new AtomicInteger();
 
     ImageView[] indicators;
     ImageView indicator;
+
+    LayoutForMainFragmentBinding binding;
 
     public DefaultBlankFragment() {
         // Required empty public constructor
@@ -77,34 +79,26 @@ public class DefaultBlankFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        if (rootView == null) {
-            rootView = inflater.inflate(R.layout.layout_for_main_fragment, container, false);
-        }
+        // 出错情况： binding = DataBindingUtil.setContentView(getActivity(), R.layout.layout_for_main_fragment);
+        binding = DataBindingUtil.inflate(inflater, R.layout.layout_for_main_fragment, container, false);
+        View view = binding.getRoot();
 
         initUI();
-        return rootView;
+        return view;
     }
 
     Handler handler = new Handler() {
         @Override
         public void handleMessage(@NonNull Message msg) {
             int curIndex = msg.what;
-            viewPager.setCurrentItem(curIndex);
+            binding.vpMainFragment.setCurrentItem(curIndex);
         }
     };
 
     private void initUI() {
-/*        TextView textView = rootView.findViewById(R.id.default_fragment_text);
-        textView.setText(mParam1);*/
-        viewPager = rootView.findViewById(R.id.vp_main_fragment);
-        viewGroupIndicators = rootView.findViewById(R.id.indicator_for_vp_main_fragment);
-
         List<ImageView> viewList = new ArrayList<>();
         ImageView imageView1 = new ImageView(getActivity());
-/*
-        imageView1.setBackgroundResource(R.drawable.birthday_1);
-*/
+
         imageView1.setImageResource(R.drawable.birthday_1);
         imageView1.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         viewList.add(imageView1);
@@ -136,21 +130,18 @@ public class DefaultBlankFragment extends Fragment {
             } else {
                 indicators[i].setBackgroundResource(R.drawable.indicator_not_selected);
             }
-            viewGroupIndicators.addView(indicators[i]);
+            binding.indicatorForVpMainFragment.addView(indicators[i]);
         }
-
-
 
         ViewPagerAdapterForMainFragment adapterForMainFragment = new ViewPagerAdapterForMainFragment(viewList);
 
-        viewPager.setBackgroundColor(getResources().getColor(R.color.antiquewhite));
-        viewPager.setAdapter(adapterForMainFragment);
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        binding.vpMainFragment.setBackgroundColor(getResources().getColor(R.color.antiquewhite));
+        binding.vpMainFragment.setAdapter(adapterForMainFragment);
+        binding.vpMainFragment.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
             }
-
             @Override
             public void onPageSelected(int position) {
                 for (int i = 0; i < indicators.length; i++) {
@@ -168,7 +159,7 @@ public class DefaultBlankFragment extends Fragment {
             }
         });
 
-        viewPager.setOnTouchListener(new View.OnTouchListener() {
+        binding.vpMainFragment.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 return false;
@@ -194,11 +185,8 @@ public class DefaultBlankFragment extends Fragment {
 
                     }
                 }
-
-
             }
         }).start();
-
 
     }
 }

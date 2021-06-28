@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <RelativeLayout
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/vp_main_fragment"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            android:layout_height="160dp"/>
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vp_main_fragment"
+                android:layout_width="match_parent"
 
-        <LinearLayout
-            android:id="@+id/indicator_for_vp_main_fragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/vp_main_fragment"
-            android:layout_marginTop="-20dp"
-            android:orientation="horizontal"
-            android:gravity="right"/>
+                android:layout_height="160dp" />
 
-    </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/indicator_for_vp_main_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vp_main_fragment"
+                android:layout_marginTop="-20dp"
+                android:gravity="right"
+                android:orientation="horizontal" />
 
-</LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>
