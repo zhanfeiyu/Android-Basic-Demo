@@ -27,8 +27,11 @@ import com.mike.demo.navigatorbuilder.Navigator;
 import com.mike.demo.patternusage.wrapperpattern.MyRecyclerView;
 import com.mike.demo.patternusage.wrapperpattern.WrapRecyclerViewAdapter;
 import com.mike.demo.ui.mainviewpager.DefaultBlankFragment;
+import com.mike.demo.ui.mainviewpager.FamilyFragment;
+import com.mike.demo.ui.mainviewpager.FindingFragment;
 import com.mike.demo.ui.mainviewpager.MainViewModel;
 import com.mike.demo.ui.mainviewpager.MainViewPagerAdapter;
+import com.mike.demo.ui.mainviewpager.MineFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,9 +68,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initFragments() {
         Log.d(TAG, "enter initFragments");
         mainPageFragments.add(DefaultBlankFragment.newInstance("Fragment1"));
-        mainPageFragments.add(DefaultBlankFragment.newInstance("Fragment2"));
-        mainPageFragments.add(DefaultBlankFragment.newInstance("Fragment3"));
-        mainPageFragments.add(DefaultBlankFragment.newInstance("Fragment4"));
+        mainPageFragments.add(FamilyFragment.newInstance("abc", "def"));
+        mainPageFragments.add(FindingFragment.newInstance("adb", "ddd"));
+        mainPageFragments.add(MineFragment.newInstance("ddd", "ddd"));
         Log.d(TAG, "leave initFragments");
     }
 
