@@ -8,13 +8,13 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/viewgroup_main_view_pager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/vp_main_fragment"
                 android:layout_width="match_parent"
-
                 android:layout_height="160dp" />
 
             <LinearLayout
@@ -22,8 +22,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/vp_main_fragment"
-                android:layout_marginTop="-20dp"
-                android:gravity="right"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
                 android:orientation="horizontal" />
 
         </RelativeLayout>

@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 changeIndicatorTab(position);
             }
         });
+        mainBinding.mainViewPager.setUserInputEnabled(false);
         Log.d(TAG, "leave initViewPager");
     }
 

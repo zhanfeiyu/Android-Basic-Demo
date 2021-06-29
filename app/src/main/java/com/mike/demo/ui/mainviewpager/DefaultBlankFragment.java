@@ -12,6 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -33,7 +34,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * create an instance of this fragment.
  */
 public class DefaultBlankFragment extends Fragment {
-
+    private String TAG = DefaultBlankFragment.class.getSimpleName();
     private static final String ARG_PARAM1 = "param1";
 
     // TODO: Rename and change types of parameters
@@ -47,6 +48,7 @@ public class DefaultBlankFragment extends Fragment {
     ImageView indicator;
 
     LayoutForMainFragmentBinding binding;
+    boolean isContinue = true;
 
     public DefaultBlankFragment() {
         // Required empty public constructor
@@ -100,22 +102,22 @@ public class DefaultBlankFragment extends Fragment {
         ImageView imageView1 = new ImageView(getActivity());
 
         imageView1.setImageResource(R.drawable.birthday_1);
-        imageView1.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        imageView1.setScaleType(ImageView.ScaleType.CENTER_CROP);
         viewList.add(imageView1);
 
         ImageView imageView2 = new ImageView(getActivity());
         imageView2.setImageResource(R.drawable.birthday_2);
-        imageView2.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        imageView2.setScaleType(ImageView.ScaleType.CENTER_CROP);
         viewList.add(imageView2);
 
         ImageView imageView3 = new ImageView(getActivity());
         imageView3.setImageResource(R.drawable.birthday_3);
-        imageView3.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        imageView3.setScaleType(ImageView.ScaleType.CENTER_CROP);
         viewList.add(imageView3);
 
         ImageView imageView4 = new ImageView(getActivity());
         imageView4.setImageResource(R.drawable.birthday_4);
-        imageView4.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        imageView4.setScaleType(ImageView.ScaleType.CENTER_CROP);
         viewList.add(imageView4);
 
         //Indicators
@@ -135,7 +137,7 @@ public class DefaultBlankFragment extends Fragment {
 
         ViewPagerAdapterForMainFragment adapterForMainFragment = new ViewPagerAdapterForMainFragment(viewList);
 
-        binding.vpMainFragment.setBackgroundColor(getResources().getColor(R.color.antiquewhite));
+        binding.viewgroupMainViewPager.setBackgroundColor(getResources().getColor(R.color.antiquewhite));
         binding.vpMainFragment.setAdapter(adapterForMainFragment);
         binding.vpMainFragment.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -162,6 +164,15 @@ public class DefaultBlankFragment extends Fragment {
         binding.vpMainFragment.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        isContinue = false;
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        isContinue = true;
+                        break;
+                }
                 return false;
             }
         });
@@ -170,19 +181,21 @@ public class DefaultBlankFragment extends Fragment {
             @Override
             public void run() {
                 while (true) {
-                    Message msg = handler.obtainMessage();
-                    msg.what = index.get();
-                    handler.sendMessage(msg);
+                    if (isContinue) {
+                        Message msg = handler.obtainMessage();
+                        msg.what = index.get();
+                        handler.sendMessage(msg);
 
-                    index.incrementAndGet();
-                    if (index.get() > viewList.size() - 1) {
-                        index.getAndAdd(-viewList.size());
-                    }
+                        index.incrementAndGet();
+                        if (index.get() > viewList.size() - 1) {
+                            index.getAndAdd(-viewList.size());
+                        }
 
-                    try {
-                        Thread.sleep(2000);
-                    } catch (Exception e) {
-
+                        try {
+                            Thread.sleep(3000);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
