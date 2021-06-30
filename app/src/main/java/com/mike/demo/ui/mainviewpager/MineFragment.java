@@ -2,12 +2,19 @@ package com.mike.demo.ui.mainviewpager;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+//import android.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.material.navigation.NavigationView;
 import com.mike.demo.R;
 
 /**
@@ -25,6 +32,9 @@ public class MineFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    DrawerLayout drawerLayout;
+    Toolbar toolbar;
 
     public MineFragment() {
         // Required empty public constructor
@@ -56,11 +66,34 @@ public class MineFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    View root;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mine, container, false);
+
+        root = inflater.inflate(R.layout.fragment_mine, container, false);
+        initUI();
+
+        return root;
+    }
+
+    private void initUI() {
+        drawerLayout = root.findViewById(R.id.drawer_layout);
+        toolbar = root.findViewById(R.id.mine_fragment_toolbar);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle
+                (getActivity(), drawerLayout, toolbar, R.string.app_name, R.string.app_name);
+        toggle.syncState();
+
+        NavigationView navigationView = root.findViewById(R.id.navigation_view);
+        navigationView.setItemIconTintList(null); //解决menu item无法显示彩色的icon, 全部是黑色的
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                drawerLayout.closeDrawers();
+                return false;
+            }
+        });
     }
 }
