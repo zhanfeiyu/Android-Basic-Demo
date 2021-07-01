@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
@@ -16,6 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
 import com.mike.demo.R;
+import com.mike.demo.databinding.FragmentMineBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,8 +35,8 @@ public class MineFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    DrawerLayout drawerLayout;
-    Toolbar toolbar;
+    View root;
+    FragmentMineBinding binding;
 
     public MineFragment() {
         // Required empty public constructor
@@ -66,32 +68,29 @@ public class MineFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    View root;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        root = inflater.inflate(R.layout.fragment_mine, container, false);
+        //root = inflater.inflate(R.layout.fragment_mine, container, false);
+        View view;
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_mine, container, false);
+        view = binding.getRoot();
         initUI();
-
-        return root;
+        return view;
     }
 
     private void initUI() {
-        drawerLayout = root.findViewById(R.id.drawer_layout);
-        toolbar = root.findViewById(R.id.mine_fragment_toolbar);
-
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle
-                (getActivity(), drawerLayout, toolbar, R.string.app_name, R.string.app_name);
+                (getActivity(), binding.drawerLayout, binding.mineFragmentToolbar, R.string.app_name, R.string.app_name);
         toggle.syncState();
 
-        NavigationView navigationView = root.findViewById(R.id.navigation_view);
-        navigationView.setItemIconTintList(null); //解决menu item无法显示彩色的icon, 全部是黑色的
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        binding.navigationView.setItemIconTintList(null); //解决menu item无法显示彩色的icon, 如果不加icon全部是黑色的
+        binding.navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                drawerLayout.closeDrawers();
+                binding.drawerLayout.closeDrawers();
+
                 return false;
             }
         });
