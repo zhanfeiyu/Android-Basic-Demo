@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.mike.demo.base.BaseActivity;
 import com.mike.demo.databinding.ActivityMainBinding;
 import com.mike.demo.databinding.LayoutForMainViewPagerIndicatorBinding;
 import com.mike.demo.navigatorbuilder.DefaultNavigator;
@@ -36,7 +37,7 @@ import com.mike.demo.ui.mainviewpager.MineFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
     private String TAG = "MainActivity";
     ViewGroup root;
     List<Fragment> mainPageFragments = new ArrayList<>();
