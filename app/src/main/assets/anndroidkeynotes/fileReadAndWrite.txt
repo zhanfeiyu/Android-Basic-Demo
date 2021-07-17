@@ -1,0 +1,21 @@
+第1类：读取assets目录下的图片文件
+
+关键点：
+获取输入流：通过AssetManager的open方法，获取InputStream
+InputStream inputStream = assetManager.open("faith-convince.jpg");
+
+获取输出流：
+使用android封装好的openFileOutput 方法，获取输出流，输出的路径在/data/data/packageName/files 目录下面，在android studio里面可以通过右侧的"Device File Explorer" 来点击查看
+FileOutputStream fos = openFileOutput("output-mid-autume.jpg", MODE_PRIVATE);
+
+边读边写内容：
+byte[] byte = new byte[1024];
+读：len = inputStream.read(byte)    //len为每次读到的byte个数，最后读不到为-1，所以用循环判断直到读取值为-1
+写：fos.write(buffer, 0, len);
+
+写入的图片 -> Bitmap
+String pathString = getFilesDir().getAbsolutePath() + "/output-mid-autume.jpg";
+Bitmap bitmap = BitmapFactory.decodeFile(pathString);
+
+
+第2类：读取和写入文本文件

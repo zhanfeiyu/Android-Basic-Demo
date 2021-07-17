@@ -12,10 +12,10 @@ import com.mike.demo.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FindingFragment#newInstance} factory method to
+ * Use the {@link StudyFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FindingFragment extends Fragment {
+public class StudyFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class FindingFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FindingFragment() {
+    public StudyFragment() {
         // Required empty public constructor
     }
 
@@ -39,8 +39,8 @@ public class FindingFragment extends Fragment {
      * @return A new instance of fragment FindingFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FindingFragment newInstance(String param1, String param2) {
-        FindingFragment fragment = new FindingFragment();
+    public static StudyFragment newInstance(String param1, String param2) {
+        StudyFragment fragment = new StudyFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

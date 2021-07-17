@@ -1,35 +1,22 @@
 package com.mike.demo;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.TextPaint;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mike.demo.base.BaseActivity;
 import com.mike.demo.databinding.ActivityMainBinding;
-import com.mike.demo.databinding.LayoutForMainViewPagerIndicatorBinding;
-import com.mike.demo.navigatorbuilder.DefaultNavigator;
-import com.mike.demo.navigatorbuilder.Navigator;
-import com.mike.demo.patternusage.wrapperpattern.MyRecyclerView;
-import com.mike.demo.patternusage.wrapperpattern.WrapRecyclerViewAdapter;
 import com.mike.demo.ui.mainviewpager.DefaultBlankFragment;
-import com.mike.demo.ui.mainviewpager.FamilyFragment;
-import com.mike.demo.ui.mainviewpager.FindingFragment;
+import com.mike.demo.ui.mainviewpager.familyfragment.FamilyFragment;
+import com.mike.demo.ui.mainviewpager.StudyFragment;
 import com.mike.demo.ui.mainviewpager.MainViewModel;
 import com.mike.demo.ui.mainviewpager.MainViewPagerAdapter;
 import com.mike.demo.ui.mainviewpager.MineFragment;
@@ -70,7 +57,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         Log.d(TAG, "enter initFragments");
         mainPageFragments.add(DefaultBlankFragment.newInstance("Fragment1"));
         mainPageFragments.add(FamilyFragment.newInstance("abc", "def"));
-        mainPageFragments.add(FindingFragment.newInstance("adb", "ddd"));
+        mainPageFragments.add(StudyFragment.newInstance("adb", "ddd"));
         mainPageFragments.add(MineFragment.newInstance("ddd", "ddd"));
         Log.d(TAG, "leave initFragments");
     }

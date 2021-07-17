@@ -86,13 +86,13 @@
                     android:id="@+id/iv_main_tab_third"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/search" />
+                    android:background="@drawable/study" />
 
                 <TextView
                     android:id="@+id/tw_main_tab_third"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="发现" />
+                    android:text="学习" />
             </LinearLayout>
 
             <LinearLayout
