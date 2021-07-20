@@ -87,7 +87,7 @@ public class LoginActivity extends BaseActivity {
         }
 
         Log.d(TAG, "username = " + userName + " ,password = " + password);
-        if (userName.equals("mike") && password.equals("123456")) {
+        if (userName.equals("admin") && password.equals("Ab123456")) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         } else {

@@ -5,7 +5,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFF6F2ED"
+        android:background="@color/lightwhite"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
@@ -142,30 +142,52 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             >
+            <com.mike.demo.customizeview.CircleImageView
+                android:id="@+id/iv_wechat_login"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@color/lightwhite"
+                android:src="@drawable/wechat_pressed"
+                android:layout_alignParentLeft="true"/>
             <TextView
+                android:id="@+id/tw_wechat_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="微信登录"
                 android:textColor="@color/cornflowerblue"
-                android:layout_alignParentLeft="true"
                 android:textSize="15sp"
-                android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/iv_wechat_login"
                 />
+            <com.mike.demo.customizeview.CircleImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@color/lightwhite"
+                android:src="@drawable/right_arrow"
+                android:layout_marginTop="2dp"
+                android:layout_toRightOf="@+id/tw_wechat_login"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="其他方式登录"
                 android:textColor="@color/cornflowerblue"
-                android:layout_alignParentRight="true"
+                android:layout_toLeftOf="@+id/iv_other_login_arrow"
+                android:layout_marginTop="5dp"
                 android:textSize="15sp"
                 android:gravity="center_vertical"/>
 
+            <com.mike.demo.customizeview.CircleImageView
+                android:id="@+id/iv_other_login_arrow"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@color/lightwhite"
+                android:src="@drawable/right_arrow"
+                android:layout_marginTop="2dp"
+                android:layout_alignParentRight="true"/>
+
         </RelativeLayout>
-
-
-
     </LinearLayout>
 </layout>
