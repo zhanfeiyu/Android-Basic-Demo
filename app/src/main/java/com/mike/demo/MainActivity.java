@@ -1,5 +1,6 @@
 package com.mike.demo;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
@@ -36,14 +37,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     ActivityMainBinding mainBinding = null;
 
     MainViewModel mainViewModel;
+    ActionBar actionBar = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        hideActionBar();
         initDataBindings();
         initFragments();
         initViewPager();
         initTabIndicator();
+    }
+
+    private void hideActionBar() {
+        actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
     }
 
     private void initDataBindings() {
