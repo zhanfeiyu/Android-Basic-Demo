@@ -154,5 +154,6 @@
     <color name="mediumblue">#0000CD</color> <!--中兰色 -->
     <color name="darkblue">#00008B</color> <!--暗蓝色 -->
     <color name="navy">#000080</color> <!--海军色 -->
+    <color name="blue_dark_indicator">#1B93BA</color> <!--蓝色-分类指示器 -->
 
 </resources>

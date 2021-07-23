@@ -1,148 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/lightwhite"
-    tools:context=".ui.mainviewpager.StudyFragment">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="学海无涯~ ~ ~"
-        android:background="@color/blueviolet"
-        android:textSize="17sp"
-        android:padding="5dp"
-        />
-
-    <com.mike.demo.customizeview.FlowLayout
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_margin="10dp">
+        android:background="@color/lightwhite"
+        android:orientation="vertical"
+        tools:context=".ui.mainviewpager.StudyFragment">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/chocolate"
+            android:background="@color/blueviolet"
             android:padding="5dp"
-            android:text="Handler-Looper"
-            />
+            android:text="学海无涯~ ~ ~"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="设计模式-代理"
-            android:padding="5dp"
-            android:background="@color/chocolate" />
+        <com.mike.demo.customizeview.FlowLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="设计模式-工厂模式"
-            android:padding="5dp"
-            android:background="@color/chocolate" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="Handler-Looper" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="设计模式-单例设计模式"
-            android:padding="5dp"
-            android:background="@color/chocolate" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="设计模式-代理" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="设计模式-builder设计模式"
-            android:padding="5dp"
-            android:background="@color/chocolate" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="设计模式-工厂模式" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="设计模式-装饰设计模式"
-            android:padding="5dp"
-            android:background="@color/chocolate" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="设计模式-单例设计模式" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="设计模式-观察者模式"
-            android:padding="5dp"
-            android:background="@color/chocolate" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="设计模式-builder设计模式" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="线程池使用"
-            android:padding="5dp"
-            android:background="@color/chocolate" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="设计模式-装饰设计模式" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="EventBus"
-            android:padding="5dp"
-            android:background="@color/chocolate" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="设计模式-观察者模式" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="反射注解和泛型"
-            android:padding="5dp"
-            android:background="@color/chocolate" />
+            <TextView
+                android:id="@+id/tw_thread_pool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="线程池使用" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="UI布局"
-            android:padding="5dp"
-            android:background="@color/chocolate" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="EventBus" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Android动画详解"
-            android:padding="5dp"
-            android:background="@color/chocolate" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="反射注解和泛型" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="View事件分发和处理流程"
-            android:padding="5dp"
-            android:background="@color/chocolate" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="UI布局" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="rxjava-观察者模式"
-            android:padding="5dp"
-            android:background="@color/chocolate" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="Android动画详解" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="rxjava-事件变换"
-            android:padding="5dp"
-            android:background="@color/chocolate" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="View事件分发和处理流程" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="rxjava-线程切换"
-            android:padding="5dp"
-            android:background="@color/chocolate" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="rxjava-观察者模式" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="文本文件的输入输出处理"
-            android:padding="5dp"
-            android:background="@color/chocolate" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="rxjava-事件变换" />
 
-    </com.mike.demo.customizeview.FlowLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="rxjava-线程切换" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/chocolate"
+                android:padding="5dp"
+                android:text="文本文件的输入输出处理" />
+
+        </com.mike.demo.customizeview.FlowLayout>
 
 
-</LinearLayout>
+    </LinearLayout>
+</layout>

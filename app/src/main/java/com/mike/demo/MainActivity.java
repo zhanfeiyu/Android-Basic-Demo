@@ -60,7 +60,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         mainViewModel = new MainViewModel(this);
         mainBinding.setVm(mainViewModel);
-
     }
 
     private void initFragments() {

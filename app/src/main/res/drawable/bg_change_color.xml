@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--这个可以用来给ImageView设置背景：设置后点击ImageView时候，背景色闪一下-->
+    <item android:drawable="@color/lightwhite" android:state_pressed="false"/>
+    <item android:drawable="@color/royalblue" android:state_pressed="true"/>
+</selector>

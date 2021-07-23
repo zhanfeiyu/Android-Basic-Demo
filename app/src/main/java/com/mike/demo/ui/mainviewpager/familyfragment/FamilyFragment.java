@@ -1,28 +1,34 @@
 package com.mike.demo.ui.mainviewpager.familyfragment;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mike.demo.R;
+import com.mike.demo.classification_fragments.CarFragment;
+import com.mike.demo.classification_fragments.ChargingFragment;
+import com.mike.demo.classification_fragments.EntertainmentFragment;
+import com.mike.demo.classification_fragments.MarketPriceFragment;
+import com.mike.demo.classification_fragments.MusicFragment;
+import com.mike.demo.classification_fragments.NoteFragment;
+import com.mike.demo.classification_fragments.PhotoFragment;
+import com.mike.demo.classification_fragments.VedioFragment;
 import com.mike.demo.databinding.FragmentFamilyBinding;
-import com.mike.demo.ui.mainviewpager.StudyFragment;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FamilyFragment extends Fragment {
     String TAG = FamilyFragment.class.getSimpleName();
@@ -43,10 +49,27 @@ public class FamilyFragment extends Fragment {
 
     FragmentFamilyBinding binding;
     List<Classifications> classificationsList = new ArrayList<>();
+    RecyclerView recyclerView;
+    FragmentManager fragmentManager;
+    FragmentTransaction transaction;
+
+    int indicatorTag = 0;
+    Map<Integer, Fragment> fragmentMap;
+
+    //Fragments
+    Fragment marketPriceFragment;
+    Fragment chargingFragment;
+    Fragment entertainmentFragment;
+    Fragment carFragment;
+    Fragment photoFragment;
+    Fragment vedioFragment;
+    Fragment musicFragment;
+    Fragment noteFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        fragmentManager = getActivity().getSupportFragmentManager();
     }
 
     @Override
@@ -58,18 +81,66 @@ public class FamilyFragment extends Fragment {
         initItemClassifications();
         initRecyclerView();
 
-        initGridView();
+        initFragmentMap();
+        setInitialFragment();
+        //initGridView();
         return view;
+    }
+
+    private void initFragmentMap() {
+        fragmentMap = new HashMap<>();
+        marketPriceFragment = new MarketPriceFragment();
+        chargingFragment = new ChargingFragment();
+        entertainmentFragment = new EntertainmentFragment();
+        carFragment = new CarFragment();
+        photoFragment = new PhotoFragment();
+        vedioFragment = new VedioFragment();
+        musicFragment = new MusicFragment();
+        noteFragment = new NoteFragment();
+
+        fragmentMap.put(0, marketPriceFragment);
+        fragmentMap.put(1, chargingFragment);
+        fragmentMap.put(2, entertainmentFragment);
+
+        fragmentMap.put(3, carFragment);
+        fragmentMap.put(4, photoFragment);
+        fragmentMap.put(5, vedioFragment);
+        fragmentMap.put(6, musicFragment);
+        fragmentMap.put(7, noteFragment);
+
+    }
+
+    private void setInitialFragment() {
+        transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.framelayout_in_fragment_family, marketPriceFragment).commit();
     }
 
     private void initRecyclerView() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
-        binding.recyclerviewFragmentFamily.setLayoutManager(linearLayoutManager);
+        recyclerView = binding.recyclerviewFragmentFamily;
+        recyclerView.setLayoutManager(linearLayoutManager);
         FamilyRecyclerAdapter adapter = new FamilyRecyclerAdapter(getActivity(), classificationsList, R.layout.classification_item);
-        binding.recyclerviewFragmentFamily.setAdapter(adapter);
+        adapter.setItemClickListener(new FamilyRecyclerAdapter.ItemClickListener() {
+            @Override
+            public void onClick(int position) {
+                Toast.makeText(getContext(), "position " + position + " clicked.." , Toast.LENGTH_SHORT).show();
+                if (position != indicatorTag) {
+                    indicatorTag = position;
+                    Fragment fragmentToShow = fragmentMap.get(indicatorTag);
+                    transaction = fragmentManager.beginTransaction();
+                    transaction.replace(R.id.framelayout_in_fragment_family, fragmentToShow).commit();
+
+                }
+
+
+            }
+        });
+        recyclerView.setAdapter(adapter);
+
     }
 
+/*
     private void initGridView() {
         GridviewAdapter adapter = new GridviewAdapter(getActivity(), R.layout.grid_view_item, names, icons);
         binding.gridviewFamilyFragment.setAdapter(adapter);
@@ -103,6 +174,7 @@ public class FamilyFragment extends Fragment {
             }
         });
     }
+*/
 
 
     String[] names = new String[] {

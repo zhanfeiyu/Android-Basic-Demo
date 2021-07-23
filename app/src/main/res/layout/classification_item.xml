@@ -8,14 +8,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="8dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/recycler_item_selector">
 
         <com.mike.demo.customizeview.CircleImageView
             android:id="@+id/iv_classification"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
-            android:src="@drawable/notification1" />
+            android:src="@drawable/notification1"
+            android:background="@drawable/bg_change_color"/>
 
         <TextView
             android:id="@+id/tv_classfication"
@@ -23,7 +28,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="提醒"
-            android:textSize="15sp" />
+            android:textSize="12sp"
+            android:textColor="#1B93BA"
+            />
+
+        <ImageView
+            android:id="@+id/iv_classification_indicator"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_gravity="center"
+            android:background="@color/lightwhite"
+            android:src="@drawable/hengxian1"/>
 
     </LinearLayout>
 </layout>
