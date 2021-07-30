@@ -18,7 +18,7 @@ import com.mike.demo.R;
 import com.mike.demo.classification_fragments.CarFragment;
 import com.mike.demo.classification_fragments.ChargingFragment;
 import com.mike.demo.classification_fragments.EntertainmentFragment;
-import com.mike.demo.classification_fragments.MarketPriceFragment;
+import com.mike.demo.classification_fragments.marketfragment.MarketPriceFragment;
 import com.mike.demo.classification_fragments.MusicFragment;
 import com.mike.demo.classification_fragments.NoteFragment;
 import com.mike.demo.classification_fragments.PhotoFragment;
@@ -80,7 +80,6 @@ public class FamilyFragment extends Fragment {
 
         initItemClassifications();
         initRecyclerView();
-
         initFragmentMap();
         setInitialFragment();
         //initGridView();

@@ -59,7 +59,6 @@ public class FamilyRecyclerAdapter extends RecyclerView.Adapter<FamilyRecyclerAd
         holder.textView.setText(classification.getDescription());
         if (position == indicatorTag) {
             holder.textView.setTypeface(Typeface.DEFAULT_BOLD);
-            holder.textView.setTextColor(Color.BLUE);
             holder.textView.setTextColor(context.getResources().getColor(R.color.blue_dark_indicator));
             holder.imageViewIndicator.setVisibility(View.VISIBLE);
         } else {

@@ -1,4 +1,4 @@
-package com.mike.demo.ui.mainviewpager.familyfragment;
+package com.mike.demo.classification_fragments.marketfragment;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,30 +10,36 @@ import android.widget.TextView;
 
 import androidx.databinding.DataBindingUtil;
 
-import com.mike.demo.base.BaseActivity;
 import com.mike.demo.databinding.GridViewItemBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GridviewAdapter extends BaseAdapter {
     Context context;
     int resource;
-    String[] names;
-    int[] icons;
+    List<Commodity> commodities = new ArrayList<>();
 
-    public GridviewAdapter(Context context, int resource, String[] names, int[] icons) {
+    public GridviewAdapter(Context context, int resource, List<Commodity> commodities) {
         this.context = context;
         this.resource = resource;
-        this.names = names;
-        this.icons = icons;
+        this.commodities.addAll(commodities);
+    }
+
+    public void updateCommodities(List<Commodity> commodities) {
+        this.commodities.clear();
+        this.commodities.addAll(commodities);
+        notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return names.length;
+        return commodities.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return names[position];
+        return commodities.get(position);
     }
 
     @Override
@@ -59,8 +65,9 @@ public class GridviewAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.imageView.setImageResource(icons[position]);
-        viewHolder.textView.setText(names[position]);
+        Commodity commodity = commodities.get(position);
+        viewHolder.imageView.setImageResource(commodity.imageId);
+        viewHolder.textView.setText(commodity.name + "/" + commodity.price);
         return convertView;
     }
 
