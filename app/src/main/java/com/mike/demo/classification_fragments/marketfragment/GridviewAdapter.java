@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.databinding.DataBindingUtil;
 
+import com.mike.demo.database.Commodity;
 import com.mike.demo.databinding.GridViewItemBinding;
 
 import java.util.ArrayList;
@@ -66,8 +67,8 @@ public class GridviewAdapter extends BaseAdapter {
         }
 
         Commodity commodity = commodities.get(position);
-        viewHolder.imageView.setImageResource(commodity.imageId);
-        viewHolder.textView.setText(commodity.name + "/" + commodity.price);
+        viewHolder.imageView.setImageResource(commodity.getImageId());
+        viewHolder.textView.setText(commodity.getName() + "/" + commodity.getPrice());
         return convertView;
     }
 
